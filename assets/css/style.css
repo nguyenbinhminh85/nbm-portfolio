@@ -1547,7 +1547,7 @@ body, html{
 
     .before_title{
         margin-bottom: var(--mb-1);
-        color: var(--section_dark_color);
+        color: var(--primary_color);
         font-size: 1.5rem;
         font-weight: 500;
         letter-spacing: 2px;
@@ -1555,7 +1555,7 @@ body, html{
 
     .before_subtitle{
         margin-bottom: var(--mb-1);
-        color: var(--section_dark_color);
+        color: var(--icon_color);
         font-size: var(--m-size);
         font-weight: 400;
         letter-spacing: 2px;
@@ -1569,11 +1569,11 @@ body, html{
         }
 
         .sec_before.change_mode .before_title{
-            color: var(--section_dark_color);
+            color: var(--dark_color);
         }
 
         .sec_before.change_mode .before_subtitle{
-            color: var(--section_dark_color);
+            color: var(--secondary_color);
         }
 
     /* <==========End of Change to Dark Mode=========> */
@@ -1910,13 +1910,18 @@ body, html{
         resize: none;
     }
 
+    .submit_btn_box{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        margin-bottom: var(--mb-1);
+    }
+
     .btn_submit{
         padding: 1rem 2rem;
         border-radius: 0.25rem;
         outline: none;
         border: none;
-        margin-left: auto;
-        margin-bottom: var(--mb-2);
         cursor: pointer;
         background-color: var(--icon_color);
         color: var(--white_color);
