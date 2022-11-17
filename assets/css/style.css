@@ -20,10 +20,13 @@ body, html{
     --secondary_color: rgba(0, 0, 0, 0.5);
     --light_color: rgba(0, 0, 0, 0.1);
     --dark_color: rgba(0, 0, 0, 1);
+    --header_dark_color:rgba(0, 0, 0, 1);
     --white_color: rgba(255, 255, 255, 1);
+    --white_dark_color: rgba(255, 255, 255, 0.6);
     --full_screen_color: rgba(0, 0, 0, 0.2);
     --success_color: rgba(0, 255, 0, 1);
     --section_color:rgba(236, 242, 245, 0.8);
+    --section_dark_color:rgba(13, 13, 14, 0.3);
 
 /*   <========== Font Size==========> */
     --sm_size: 0.5rem;
@@ -57,6 +60,7 @@ body, html{
 
     a{
         text-decoration: none;
+        color: var(--success_color);
     }
 
     li{
@@ -91,8 +95,7 @@ body, html{
     .nav_bar{
         display: flex;
         justify-content: space-between;
-        align-items: center;
-        
+        align-items: center; 
     }
 
     .nav_bar.container{
@@ -111,18 +114,25 @@ body, html{
         letter-spacing: 2px;
         color: var(--primary_color);
         text-transform: uppercase;
+        order: 0;
     }
+
+     /* <========== Change to Dark Mode =========> */
+     .nav_bar.change_mode .nav_bar_logo{
+        color: var(--white_color);
+    }
+/* <==========End of Change to Dark Mode=========> */
 
 /* <========== Header Style Toggler Nav Item=========> */
 
-    .nav_bar .nav_bar_collapse ul li{
+    ul li{
         padding: 0.5rem 0.75rem;
         cursor: pointer;
         transition: all 0.5s ease-in-out;
     }
 
 /* <========== Header Style Toggler Nav Link=========> */
-    .nav_bar .nav_bar_collapse ul li a{
+    ul li a{
         color: var(--dark_color);
         font-size: var(--no_size);
         font-weight: var(--m_fw);
@@ -130,7 +140,13 @@ body, html{
     
     }
 
-    .nav_bar .nav_bar_collapse ul li:hover a::after{
+/* <========== Change to Dark Mode =========> */
+        .nav_bar.change_mode ul li a{
+            color: var(--white_color);
+        }
+/* <==========End of Change to Dark Mode=========> */
+
+    ul li:hover a::after{
         position: absolute;
         content: "";
         min-width: 100%;
@@ -141,7 +157,7 @@ body, html{
     
     }
 
-    .nav_bar .nav_bar_collapse ul .nav_link.active::after{
+     ul .nav_link.active::after{
         position: absolute;
         content: "";
         min-width: 100%;
@@ -149,6 +165,33 @@ body, html{
         background-color: var(--primary_color);
         bottom: 0;
         left: 0;
+    }
+
+    .nav_bar_toggler p{
+        font-size: 1.5rem;
+        font-weight: 100;
+        cursor: pointer;
+       
+    }
+
+    .nav_bar_toggler_dark{
+        display: none;
+        color: var(--white_color);
+    }
+
+    .nav_bar_toggler_light{
+        color: var(--dark_color);
+    }
+
+
+    .nav_bar_toggler_light.turn_on{
+        display: none;
+        transition: all 0.3s;
+    }
+
+    .nav_bar_toggler_dark.turn_on{
+      display: block;
+      transition: all 0.3s;
     }
    
    
@@ -162,7 +205,6 @@ body, html{
             min-height: 100%;
             top: 0;
             right: 0;
-            background-color: rgba(0, 0, 0, 0.5);
             z-index:200;
             transition: all 0.5s ease-in-out;
             padding: 0 2rem;
@@ -176,7 +218,7 @@ body, html{
             position: relative;
             top: 3rem;
             padding-bottom: 1rem;
-            border-bottom: solid 1px #fff;
+            border-bottom: solid 1px var(--white_color);
         }
 
         .nav_bar .nav_bar_collapse ul li{
@@ -211,21 +253,21 @@ body, html{
 
     /* <========== Header Style Toggler Button=========> */
 
-        .nav_bar_toggler p{
-            font-size: 1.5rem;
-            font-weight: 100;
-            color: var(--secondary_color);
-            cursor: pointer;
+        .nav_bar_toggler.button{
+            order: 2;
         }
 
-        .nav_bar .nav_bar_toggler{
+        .nav_bar_toggler_button.open{
             display: block;
+            margin-left: var(--p-2);
+            color: var(--icon_color);
         }
 
-
-        .nav_bar .nav_bar_toggler button.open{
-            display: block;
-        }
+        /* <========== Change to Dark Mode =========> */
+            .nav_bar.change_mode .nav_bar_toggler_button.open{
+                color: var(--white_color);
+            }
+        /* <==========End of Change to Dark Mode=========> */
 
         .nav_bar_toggler_button.close{
             display: none;
@@ -249,17 +291,46 @@ body, html{
             background-color: var(--light_color);
         }
 
+        .nav_bar_toggler.nav_themes{
+            order: 1;
+            margin-left: auto;
+        }
+
+
+
     /* <========== Display Menu =========> */
 
         .nav_bar_collapse.show{
             right: 0;
             opacity: 1;
-           clip-path: ellipse(100% 60% at 100% 0%); 
+            clip-path: ellipse(100% 60% at 100% 0%); 
+            background-color: var(--secondary_color);
         }
 
         .full_screen.active{
             display: block ;
         }
+
+
+         /* <========== Change to Dark Mode =========> */
+
+         .nav_bar.change_mode .nav_bar_collapse.show{
+            background-color: var(--white_dark_color);
+        }
+
+        .nav_bar.change_mode .nav_bar_collapse ul li a{
+            color: var(--dark_color);
+        }
+
+        .nav_bar.change_mode .nav_bar_toggler_button.close{
+            color: var(--dark_color);
+        }
+
+        .nav_bar.change_mode .nav_bar_collapse ul{
+            border-bottom: solid 1px var(--dark_color);
+        }
+
+    /* <==========End of Change to Dark Mode=========> */
 
     }
 
@@ -272,9 +343,17 @@ body, html{
             z-index: 1100;
             background-color: var(--white_color);
         }
+
+        header.change_mode.sticky{
+            background-color: var(--header_dark_color);
+        }
         
         .nav_bar .nav_bar_toggler{
             display: none;
+        }
+
+        .nav_bar_collapse{
+            margin-left: auto;
         }
 
 
@@ -289,6 +368,15 @@ body, html{
         .nav_bar_toggler_button.close{
             display: none !important;
         }
+
+
+        .nav_bar_toggler.nav_themes{
+           display: block;
+           margin-left: var(--p-2);
+        }
+
+
+
     }
 
 
@@ -322,7 +410,7 @@ body, html{
 /*<=============== margin =============>*/
 
     .container{
-        max-width: 1100px;
+        max-width: var(--container_width);
         margin: 0 auto;
     }
 
@@ -334,7 +422,7 @@ body, html{
 
     }
 
-    h1{
+    h1, h2{
         color: rgba(0, 0, 0, 1);
     }
 
@@ -345,6 +433,24 @@ body, html{
     p{
         color: rgba(0, 0, 0, 0.6);
     }
+
+
+     /* <========== Change to Dark Mode =========> */
+       body.change_mode h1, 
+       body.change_mode h2{
+            color: var(--white_color);
+        }
+
+       body.change_mode h3, body.change_mode h4, body.change_mode h5{
+            color: var(--white_dark_color);
+        }
+
+        body.change_mode p{
+            color: var(--white_color);
+        }
+    /* <==========End of Change to Dark Mode=========> */
+
+    
 
 /*<=============== Section Home =============>*/
 
@@ -407,6 +513,7 @@ body, html{
 
     .home_scroll_down{
         width: fit-content;
+        color: var(--secondary_color);
     }
 
     .home_scroll_down p{
@@ -414,8 +521,7 @@ body, html{
     }
 
     .home_scroll_down i{
-    font-size: 1.5rem;
-    color: var(--secondary_color);
+        font-size: 1.5rem;
     }
 
     .home_social_info{
@@ -431,11 +537,25 @@ body, html{
     }
 
     .home_social_info .title{
-    transform: rotate(90deg);
-    font-size: var(--no_size);
-    color: var(--icon_color);
-    margin-bottom: var(--mb-4);
+        transform: rotate(90deg);
+        font-size: var(--no_size);
+        color: var(--icon_color);
+        margin-bottom: var(--mb-4);
     }
+
+    /* <========== Change to Dark Mode =========> */
+        .sec_home.change_mode .home_scroll_down{
+            color: var(--white_dark_color);
+        }
+
+        .sec_home.change_mode .home_social_info .title{
+            color: var(--white_dark_color);
+        }
+
+        .sec_home.change_mode .home_social_info .home_social_info_icon p{
+            color: var(--primary_color);
+        }
+    /* <==========End of Change to Dark Mode=========> */
 
     .home_social_info_icon{
         display: flex;
@@ -497,6 +617,17 @@ body, html{
         margin-bottom: var(--mb-4);
     }
 
+    /* <========== Change to Dark Mode =========> */
+        .sec_about.change_mode .about_sologun{
+            background-color: var(--white_color);
+        }
+
+        .sec_about.change_mode .about_sologun p{
+            color: var(--header_dark_color);
+        }
+
+    /* <==========End of Change to Dark Mode=========> */
+
     .about_sologun .inner_sologun{
         width: 360px;
         height: 230px;
@@ -504,7 +635,7 @@ body, html{
         position: absolute;
         top: 20px;
         left: 20px;
-        border: 2px solid var(--dark_color);
+        border: 2px solid var(--icon_color);
         display: flex;
         justify-content: center;
         align-items: center;
@@ -562,16 +693,35 @@ body, html{
     }
 
     .about-content .working_experience .icon{
-    font-size: 3rem;
+        font-size: 3rem;
+        color: var(--icon_color);
     }
 
     .about-content .working_experience .number{
         font-size: var(--m_size);
+        color: var(--primary_color);
+        margin: var(--mb-2) 0;
     }
 
     .about-content .working_experience p{
         text-align: center;
     }
+
+
+    /* <========== Change to Dark Mode =========> */
+        .sec_about.change_mode .about-content .working_experience{
+            background-color: var(--white_color);
+        }
+
+        .sec_about.change_mode .about-content .working_experience .years{
+            color: var(--header_dark_color);
+        }
+
+        .sec_about.change_mode .about_sologun .inner_sologun{
+            border: 2px solid var(--icon_color);
+        }
+
+    /* <==========End of Change to Dark Mode=========> */
 
 
 /*<=============== Section Skill =============>*/
@@ -621,14 +771,14 @@ body, html{
 
     .skill_icon{
         font-size: 2.5rem;
-        color: var(--primary_color);
+        color: var(--icon_color);
         font-weight: 100;
         margin-right: var(--mb-2);
     }
 
     .skill_chervon{
         font-size: 1.5rem;
-        color: var(--primary_color);
+        color: var(--icon_color);
         font-weight: 200;
         width: 2.5rem;
         height: 2.5rem;
@@ -646,6 +796,7 @@ body, html{
 
     .skill_chervon.rotate{
         transform: rotate(180deg);
+        color: var(--primary_color);
     }
 
 
@@ -734,6 +885,37 @@ body, html{
     }
 
 
+    /* <========== Change to Dark Mode =========> */
+
+        .sec_skill.change_mode .skill_nav{
+            background-color: var(--white_color);
+        }
+
+        .sec_skill.change_mode .skill_icon{
+            color: var(--icon_color);
+        }
+
+        .sec_skill.change_mode .skill_nav_title h4{
+            color: var(--header_dark_color);
+        }
+
+        .sec_skill.change_mode .skill_nav_title p{
+            color: var(--header_dark_color);
+        }
+
+        .sec_skill.change_mode .skill_detail_info strong{
+            color: var(--white_color);
+        }
+
+        .sec_skill.change_mode .skill_detail_bar{
+            background-color: var(--header_dark_color);
+        }
+
+
+    /* <==========End of Change to Dark Mode=========> */
+
+
+
 /* <=============== Section Qualification =============>  */
 
     .sec_qualification{
@@ -793,8 +975,12 @@ body, html{
 
     .qua-content-icon{
         margin-right: var(--mb-1);
-        color: var(--primary_color);
+        color: var(--icon_color);
         font-size: 1.25rem;
+    }
+
+    .qua-content-title.active{
+        color: var(--primary_color);
     }
 
     .qua-info{
@@ -868,8 +1054,9 @@ body, html{
         padding-left: 1rem;
     }
 
-    .qua-work-detail strong{
+    .qua-work-detail strong, .qua-social-media strong{
         display: inline;
+        color: var(--primary_color);
     }
 
     .qua-work-detail p{
@@ -879,6 +1066,31 @@ body, html{
     #mywork{
         display: none;
     }
+
+
+    /* <========== Change to Dark Mode =========> */
+
+    .sec_qualification.change_mode .qua-nav-btn{
+        background-color: var(--white_color);
+    }
+
+    .sec_qualification.change_mode .qua-content-icon{
+        color: var(--icon_color);
+    }
+
+    .sec_qualification.change_mode .qua-content-title{
+        color: var(--header_dark_color);
+    }
+
+    .sec_qualification.change_mode .qua-content-title.active{
+        color: var(--primary_color);
+    }
+
+    .sec_qualification.change_mode .qua-work-detail strong, .sec_qualification.change_mode .qua-social-media strong{
+        color: var(--primary_color);
+    }
+
+/* <==========End of Change to Dark Mode=========> */
 
 
 /*<=============== Section Services =============>*/
@@ -935,8 +1147,14 @@ body, html{
         box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.3);
     }
 
+    .service_info h4{
+        font-size: var(--m_size);
+    }
+
     .service_icon{
-        font-size: 4rem;
+        font-size: 5rem;
+        padding: var(--p-2);
+        color: var(--icon_color);
     }
 
     .service_view_service{
@@ -948,16 +1166,43 @@ body, html{
         height: var(--no_size);
         padding: var(--no_size);
         font-size: var(--m_size);
+        color: var(--icon_color);
         display: flex;
         align-items: center;
         justify-content: center;
         border-radius: 50%;
         cursor: pointer;
+        transition: all 0.3s;
+    }
+
+    .service_view-service_arrow.rotate{
+        transform: rotate(90deg);
+        color: var(--primary_color);
     }
 
     .service_view-service_arrow:hover{
         background-color: var(--light_color);
     }
+
+
+    /* <========== Change to Dark Mode =========> */
+
+        .sec_service.change_mode .service_info{
+            background-color: var(--white_color);
+            box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2);
+        }
+
+        .sec_service.change_mode .service_info p{
+            color: var(--icon_color);
+        }
+
+        .sec_service.change_mode .service_info h4{
+            color: var(--header_dark_color);
+        }
+
+
+    /* <==========End of Change to Dark Mode=========> */
+
 
 
 /*<=============== Section Services Modal=============>*/
@@ -1024,6 +1269,19 @@ body, html{
     background-color: var(--light_color);
     
     }
+
+       /* <========== Change to Dark Mode =========> */
+
+        .sec_service.change_mode .service_info_detail{
+            background-color: var(--header_dark_color);
+        }
+
+        .sec_service.change_mode .service_info_icon{
+           color: var(--primary_color);
+        }
+
+
+    /* <==========End of Change to Dark Mode=========> */
 
 
 /*<=============== Section Porfolio =============>*/
@@ -1134,6 +1392,7 @@ body, html{
         color: var(--dark_color);
         cursor: pointer;
         position: absolute;
+        color: var(--icon_color);
         z-index: 999;
         transition: all 0.3s ease-in;
     }
@@ -1190,7 +1449,9 @@ body, html{
         text-decoration: underline;
     }
 
-/* <=============== Section Porfolio Marker=============> */
+
+        
+    /* <=============== Section Porfolio Marker=============> */
 
     .portfolio_active_site_mark{
         width: 100%;
@@ -1225,6 +1486,36 @@ body, html{
     }
 
 
+         /* <========== Change to Dark Mode =========> */
+
+            .sec_portfolio.change_mode .portfolio_project{
+                box-shadow: 0 4px 8px 0 rgba(255,255,255,0.2);
+                background-color: var(--white_color);
+            }
+
+            .sec_portfolio.change_mode .portfolio_project_content_title h4{
+                color: var(--header_dark_color);
+            }
+
+            .sec_portfolio.change_mode .portfolio_project_content_title p{
+                color: var(--icon_color);
+            }
+
+            .sec_portfolio.change_mode .portfolio_project_content p{
+                color: var(--header_dark_color);
+            }
+
+            .sec_portfolio.change_mode .portfolio_mark{
+                background-color: var(--white_color);
+            }
+
+            .sec_portfolio.change_mode .portfolio_mark.marked{
+                background-color: var(--primary_color);
+            }
+
+
+        /* <==========End of Change to Dark Mode=========> */
+
 /*<=============== Section Message Before Testimonial =============>*/
 
     .sec_before{
@@ -1256,7 +1547,7 @@ body, html{
 
     .before_title{
         margin-bottom: var(--mb-1);
-        color: var(--white_color);
+        color: var(--section_dark_color);
         font-size: 1.5rem;
         font-weight: 500;
         letter-spacing: 2px;
@@ -1264,11 +1555,28 @@ body, html{
 
     .before_subtitle{
         margin-bottom: var(--mb-1);
-        color: var(--white_color);
+        color: var(--section_dark_color);
         font-size: var(--m-size);
         font-weight: 400;
         letter-spacing: 2px;
     }
+
+
+     /* <========== Change to Dark Mode =========> */
+
+        .sec_before.change_mode{
+            background-color: var(--section_dark_color);
+        }
+
+        .sec_before.change_mode .before_title{
+            color: var(--section_dark_color);
+        }
+
+        .sec_before.change_mode .before_subtitle{
+            color: var(--section_dark_color);
+        }
+
+    /* <==========End of Change to Dark Mode=========> */
 
 /*<=============== Section Testimonial =============>*/
 
@@ -1293,7 +1601,7 @@ body, html{
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        margin-bottom: var(--mb-3);
+        margin-bottom: var(--mb-4);
     }
 
     .testimonial_title{
@@ -1423,6 +1731,37 @@ body, html{
         margin-left: 0;
     }
 
+
+      /* <========== Change to Dark Mode =========> */
+
+        .sec_testimonial.change_mode .testimonial_item{
+            background-color: var(--white_color);
+        }
+
+        .sec_testimonial.change_mode .testimonial_mark{
+            background-color: var(--white_color);
+        }
+
+        .sec_testimonial.change_mode .testimonial_mark.marked{
+            background-color: var(--primary_color);
+        }
+
+        .sec_testimonial.change_mode .client_name{
+            color: var(--header_dark_color);
+        }
+
+        .sec_testimonial.change_mode .client_title{
+            color: var(--secondary_color);
+        }
+
+        .sec_testimonial.change_mode .testimonial_client_star p{
+            color: var(--header_dark_color);
+        }
+
+
+    /* <==========End of Change to Dark Mode=========> */
+
+
 /* <=============== Section Contact Information =============> */
 
 @keyframes contact_info_top{
@@ -1437,9 +1776,9 @@ body, html{
 
     .sec_contact{
         margin: 0rem 0 0rem;
-        padding-top: var(--p-2);
-        background-color: var(--section_color);
         scroll-snap-align: center;
+        background-color: var(--section_color);
+        padding-top: var(--p-2);
     }
 
     .contact_wrapper{
@@ -1450,7 +1789,6 @@ body, html{
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        background-color: var(--section_color);
     }
 
     .contact_header{
@@ -1466,21 +1804,20 @@ body, html{
     }
 
     .contact_content_wrapper{
-        width: 100%;
+        max-width: 100%;
         position: relative;
         display: grid;
         grid-template-columns: 1fr;
         gap: var(--mb-3);
         margin-top: var(--mb-2);
-       
     }
 
     .contact_personal_info{
         display: flex;
         flex-direction: column;
         width: 100%;
-        padding-left: var(--p-2);
         animation: contact_info_top 1s ease-in;
+       
     }
 
     .contact_item{
@@ -1509,6 +1846,7 @@ body, html{
         justify-content: flex-start;
         flex-direction: column;
         animation: contact_form_bottom 1s ease-in;
+
     }
 
     .contact_form h3{
@@ -1580,7 +1918,7 @@ body, html{
         margin-left: auto;
         margin-bottom: var(--mb-2);
         cursor: pointer;
-        background-color: var(--primary_color);
+        background-color: var(--icon_color);
         color: var(--white_color);
         font-size: var(--no_size);
         font-weight: 500;
@@ -1597,110 +1935,178 @@ body, html{
     }
 
 
+    /* <========== Change to Dark Mode =========> */
+
+        .sec_contact.change_mode{
+            background-color: var(--section_dark_color);
+        }
+
+        .sec_contact.change_mode .contact_form h3{
+            color: var(--light_color);
+        }
+
+        .sec_contact.change_mode .contact_icon{
+            color: var(--icon_color);
+        }
+
+        .sec_contact.change_mode .contact_info p{
+            color: var(--primary_color);
+        }
+
+
+        .sec_contact.change_mode .contact_form h3{
+            color: var(--header_dark_color);
+        }
+
+    /* <==========End of Change to Dark Mode=========> */
+
+
 /*  <=============== Footer Area =============> */
 
  
-footer{
-    margin: 5rem 0 0rem;
-    background-color: rgba(0, 0, 255, 0.6);
-}
+        footer{
+            margin: 8rem 0 0rem;
+            background-color: var(--section_color);
+        }
 
-.footer_wrapper{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
+        .footer_wrapper{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
 
-.footer_nav_bar{
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--p-3);
-    margin: var(--mb-3) 0;
-    padding-left: var(--p-3);
-}
+        .footer_nav_bar{
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--p-3);
+            margin: var(--mb-3) 0;
+            padding-left: var(--p-3);
+        }
 
-.footer_info{
-    padding: var(--p-2);
-}
+        .footer_info{
+            padding: var(--p-2);
+        }
 
-.footer_info .footer_title h3{
-    color: var(--white_color);
-}
+        .footer_info .footer_title h3{
+            color: var(--header_dark_color);
+        }
 
-.footer_info .footer_content p{
-    color: var(--white_color);
-}
+        .footer_info .footer_content p{
+            color: var(--header_dark_color);
+        }
 
-.footer_info .footer_content h3{
-    color: var(--white_color);
-}
+        .footer_info .footer_content h3{
+            color: var(--secondary_color);
+        }
 
-.footer_info .footer_title{
-    margin-bottom: var(--p-2);
-}
-
-
-.footer_info:last-child ul{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.footer_info:last-child ul a{
-   color: var(--white_color);
-   font-size: var(--no_size);
-   margin-bottom: var(--p-2);
-}
-
-.footer_contact_item{
-    display: flex;
-    flex-direction: row;
-    margin-bottom: var(--mb-3);
-}
-
-.footer_contact_info h3{
-    color: var(--white_color);
-    font-weight: 400;
-}
-
-.footer_contact_info p{
-    color: var(--white_color);
-    font-weight: 400;
-}
+        .footer_info .footer_title{
+            margin-bottom: var(--p-2);
+        }
 
 
-.footer_contact_icon{
-    color: var(--primary_color);
-    font-size: var(--m_size);
-    margin-right: var(--p-2);
-    display: flex;
-    align-items: center;
-   
-}
+        .footer_info:last-child ul{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
 
-.footer_social_icon span{
-    font-size: 2.5rem;
-    transition: all 0.3s;
-}
+        .footer_info:last-child ul a{
+            color: var(--header_dark_color);
+            font-size: var(--no_size);
+            margin-bottom: var(--p-2);
+        }
 
-.footer_social_icon{
-    padding-left: var(--p-2);
-}
+        .footer_contact_item{
+            display: flex;
+            flex-direction: row;
+            margin-bottom: var(--mb-3);
+        }
 
-.footer_social_icon span:hover{
-    color: var(--icon_color);
-    transform: scale(1.05);
-}
+    
+
+        .footer_contact_icon{
+            color: var(--icon_color);
+            font-size: var(--m_size);
+            margin-right: var(--p-2);
+            display: flex;
+            align-items: center;
+        
+        }
+
+        .footer_social_icon span{
+            font-size: 2.5rem;
+            transition: all 0.3s;
+        }
+
+        .footer_social_icon{
+            padding-left: var(--p-2);
+        }
+
+        .footer_social_icon span:hover{
+            color: var(--icon_color);
+            transform: scale(1.05);
+        }
+
+        /* <========== Change to Dark Mode =========> */
+
+            footer.change_mode{
+                background-color: var(--section_dark_color);
+            }
+
+            footer.change_mode .footer_info .footer_title h3{
+                color: var(--white_color);
+            }
+
+            footer.change_mode .footer_info .footer_content h3{
+                color: var(--white_dark_color);
+            }
+
+            footer.change_mode .footer_contact_info p{
+                color: var(--white_dark_color);
+            }
+
+            footer.change_mode .footer_info .footer_content p{
+                color: var(--white_dark_color);
+            }
+
+            footer.change_mode .footer_info:last-child ul a{
+                color: var(--white_dark_color);
+            }
+
+            footer.change_mode .footer_info:last-child ul a{
+                color: var(--white_dark_color);
+            }
+
+        /* <==========End of Change to Dark Mode=========> */
 
 /* <=============== Copy right =============> */
 
-.copy_right{
-    padding: var(--p-1) 0;
-    border-top: 1px solid var(--white_color);
-    min-width: 100%;
-    padding-left: var(--p-3);
-}
+        .copy_right{
+            padding: var(--p-1) 0;
+            border-top: 1px solid var(--light_color);
+            min-width: 100%;
+            padding-left: var(--p-3);
+            
+        }
+
+
+        .copy_right p{
+           color: var(--header_dark_color);
+            
+        }
+
+
+         /* <========== Change to Dark Mode =========> */
+         footer.change_mode .copy_right{
+            border-top: 1px solid var(--white_dark_color);
+        }
+        
+            footer.change_mode .copy_right p{
+                color: var(--white_dark_color);
+            }
+
+         /* <==========End of Change to Dark Mode=========> */
 
 
 /* <=============== Scroll Top =============> */   
@@ -1730,6 +2136,14 @@ footer{
     color: var(--white_color);
     font-weight: 100;
 }
+
+
+/* =====================Toggle Theme Color===================== */
+
+body.change_mode{
+    background-color: var(--dark_color);
+}
+
   
  
 

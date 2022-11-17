@@ -1,12 +1,12 @@
 @media screen and (min-width: 605px) {
     
     .contact_personal_info{
-       margin-left: var(--p-3);
+       margin-left: var(--p-1);
     }
 
     
     .contact_form{
-        min-width: 500px;
+        min-width: 600px;
         margin: 0 auto;
         border-radius: var(--p-2);
         padding: var(--p-2) var(--p-3);
@@ -199,7 +199,7 @@
     }
 
     .service_icon{
-        font-size: 5rem;
+        font-size: 6rem;
     }
 
 
@@ -262,7 +262,7 @@
     }
 
     .contact_personal_info{
-        padding-left: var(--mb-4);
+        padding-left: var(--mb-1);
     }
 
 
@@ -279,8 +279,8 @@
     }
 
     .contact_form{
-        min-width: 500px;
-        max-width: 500px;
+        min-width: 600px;
+        max-width: 600px;
     }
 
     .form-control input, .form-control textarea{
@@ -292,6 +292,23 @@
     
         margin-bottom: var(--mb-3); 
     }
+
+     /* <========== Change to Dark Mode =========> */
+
+        .sec_contact.change_mode .contact_wrapper::after{
+            background-color: var(--dark_color);
+        }
+
+        .sec_contact.change_mode{
+           
+        }
+
+        .sec_contact.change_mode .contact_wrapper{
+            
+        }
+
+      
+    /* <==========End of Change to Dark Mode=========> */
 
  /*  <=============== Footer Area =============> */
 
@@ -313,6 +330,15 @@
 
 
 @media screen and (min-width: 1024px) {
+
+/*<=============== Section Home =============>*/
+
+    .home_img{
+        width: 440px;
+        height: 440px;
+       
+    }
+
 
 /*<=============== Section About =============>*/
     .about-content-wrapper{
@@ -369,14 +395,8 @@
         100%{opacity: 1; transform: translateX(0%);}
     }
 
-
     .sec_contact{
         min-width:auto;
-    }
-
-    .contact_wrapper{
-        padding: var(--p-3);
-
     }
 
 
@@ -386,21 +406,20 @@
 
 
     .contact_personal_info{
-    justify-content: center;
-    align-items: flex-start;
-    padding-left: 0;
-    animation: contact_info_left 1s ease-in;
+        justify-content: center;
+        align-items: flex-start;
+        padding-left: var(--p-2);
+        animation: contact_info_left 1s ease-in;
     }
 
 
     .contact_content_wrapper{
-        width: auto;
+        width: var(--container_width);
         grid-template-columns: 40% 60%;
         gap: var(--p-3);
         justify-content: center;
         align-items: center;
         margin-bottom: var(--mb-4);
-        
     }
 
     .contact_form{
