@@ -1,0 +1,448 @@
+@media screen and (min-width: 605px) {
+    
+    .contact_personal_info{
+       margin-left: var(--p-1);
+    }
+
+    
+    .contact_form{
+        min-width: 600px;
+        margin: 0 auto;
+        border-radius: var(--p-2);
+        padding: var(--p-2) var(--p-3);
+        background-color: var(--white_color);
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25);
+        position: relative;
+        top: 5%;
+        z-index: 999;
+
+    }
+
+
+    /*  <=============== Footer Area =============> */
+
+    
+}
+
+@media screen and (min-width: 768px) {
+
+
+/*<=============== Section Home =============>*/  
+
+
+@keyframes home_info_left{
+    0%{opacity: 0; transform: translateX(-150%);}
+    100%{opacity: 1; transform: translateX(0%);}
+}
+
+@keyframes home_profile_right{
+    0%{opacity: 0; transform: translateX(150%);}
+    100%{opacity: 1; transform: translateX(0%);}
+}
+
+    .home_wrapper{
+        display: grid;
+        grid-template-columns: 60% 40%;
+        gap: 1rem;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .home-content-wrapper{
+        text-align: start;
+        align-items: flex-start;
+        animation: home_info_left 1s ease-in;
+    }
+
+
+    .home_wrapper .home_img{
+        order: 2;
+        margin: 0 auto;
+        animation: home_profile_right 1s ease-in;
+    }
+
+    .home-icon-wrapper{
+        display: flex;
+        flex-direction: row;
+    }
+    
+    .home_scroll_down{
+        margin-right: var(--mb-4);
+    }
+    
+
+    .home_social_info{
+      position: static;
+      display: flex;
+      flex-direction: row;
+      margin-left: var(--mb-4);
+    }
+
+    .home_social_info_icon{
+        flex-direction: row;
+        margin: 0 var(--mb-2) ;
+    }
+
+    .home_social_info .title{
+        transform: rotate(0deg);
+        margin-bottom: 0;
+      }
+
+      .home_social_info_icon p{
+        margin: 0 0.25rem;
+    }
+
+
+/*<=============== Section About =============>*/
+
+    .about-content-wrapper{
+        margin-top: var(--mb-2);
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+
+    .about_sologun{
+        margin-bottom: 0;
+        margin-right: 2rem;
+    }
+
+    .about-content{
+        margin:0;
+        align-items: flex-end;
+        justify-content: center;
+    }
+
+
+    .about_sologun{
+        flex: 0 0 360px;
+        height: 230px;
+        background-color: var(--light_color);
+        position: relative;
+    }
+
+    .about_sologun .inner_sologun{
+        width: 360px;
+        height: 230px;
+        padding: 20px;
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        border: 2px solid var(--dark_color);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .about_sologun .mark_circle{
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background-color: var(--primary_color);
+        margin-bottom: var(--mb-2);
+    }
+
+    .about_sologun .mark_circle.one{
+        top: 15px;
+        left: 15px;
+    }
+    .about_sologun .mark_circle.two{
+        top: 15px;
+        left: 370px;
+    }
+
+    .about_sologun .mark_circle.three{
+        top: 240px;
+        left: 15px;
+    }
+    .about_sologun .mark_circle.four{
+        top: 240px;
+        left: 370px;
+    }
+
+
+/*<=============== Section Skill =============>*/
+
+    .skill_content_wrapper{
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--mb-3);
+        width: 100%;
+    }
+
+    .skill_info{
+        margin-bottom: 0;
+    }
+
+
+    .skill_chervon{
+        display: none;
+    }
+
+
+/*<=============== Section Services =============>*/
+
+    .service_content_wrapper{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--p-2);
+        justify-content: space-around;
+        width: 100%;
+    }
+    
+    .service_info{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .service_icon{
+        font-size: 6rem;
+    }
+
+
+    .service_view_service{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: var(--p-1) var(--p-2);
+        margin: var(--mb-2) 0;
+        background-color: var(--icon_color);
+        border: none;
+        outline: none;
+        font-size: var(--n_size);
+        border-radius: 0.25rem;
+        color: var( --white_color);
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+
+    .service_view_service span{
+        margin-left: var(--mb-1);
+    }
+
+    .service_view_service:hover{
+        background-color: var(--btn_hover);
+        transform: scale(1.05);
+    }
+
+    .service_view-service_arrow{
+        display: none;
+    }
+
+/* <=============== Section Porfolio =============> */
+
+    .portfolio_project{
+        flex: 0 0 calc((100% - 1rem)/2);
+    }
+
+    .portfolio_mark.last_two{
+        display: none;
+    }
+
+
+    /*<=============== Section Testimonial =============>*/
+
+    .testimonial_item{
+        flex: 0 0 calc((100% - 1rem)/2);
+    }
+
+    .testimonial_mark.last_two{
+        display: none;
+    }
+
+
+/* <!-- <=============== Section Contact Information =============> --> */
+
+    .contact_content_wrapper{
+        max-width: 100%;
+        grid-template-columns: 1fr;
+    }
+
+    .contact_personal_info{
+        padding-left: var(--mb-1);
+    }
+
+
+    .contact_wrapper::after{
+        content: "";
+        position: absolute;
+        bottom: -80px;
+        left: 0;
+        min-width: 100%;
+        height: 160px;
+        background-color: var(--white_color);
+        transform: skewY(-4deg)
+        
+    }
+
+    .contact_form{
+        min-width: 600px;
+        max-width: 600px;
+    }
+
+    .form-control input, .form-control textarea{
+        max-width: 100%;
+
+    }
+
+    .contact_item:not(:last-child){
+    
+        margin-bottom: var(--mb-3); 
+    }
+
+     /* <========== Change to Dark Mode =========> */
+
+        .sec_contact.change_mode .contact_wrapper::after{
+            background-color: var(--dark_color);
+        }
+
+        .sec_contact.change_mode{
+           
+        }
+
+        .sec_contact.change_mode .contact_wrapper{
+            
+        }
+
+      
+    /* <==========End of Change to Dark Mode=========> */
+
+ /*  <=============== Footer Area =============> */
+
+    .footer_nav_bar{
+        display: grid;
+        grid-template-columns: 40% 35% 25%;
+        gap: var(--p-1);
+        justify-content: space-between;
+    }
+
+
+
+    .footer_info:last-child ul{
+        align-items: flex-end;
+        padding-right: var(--p-3);
+    }
+
+    }
+
+
+@media screen and (min-width: 1024px) {
+
+/*<=============== Section Home =============>*/
+
+    .home_img{
+        width: 440px;
+        height: 440px;
+       
+    }
+
+
+/*<=============== Section About =============>*/
+    .about-content-wrapper{
+        
+        justify-content: space-around;
+       
+    }
+
+/*<=============== Section Skill =============>*/
+
+.skill_content_wrapper{
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--mb-3);
+    width: 100%;
+ }
+
+ 
+ /* <=============== Section Porfolio =============> */
+    .portfolio_project{
+        flex: 0 0 calc((100% - 2rem)/3);
+    }
+
+    .portfolio_mark.last_one, .portfolio_mark.last_two{
+        display: none;
+    }
+
+/*<=============== Section Testimonial =============>*/
+
+
+    .testimonial_item{
+        flex: 0 0 calc((100% - 2rem)/3);
+    }
+
+    .testimonial_client_star{
+    
+        flex-direction: column;
+        align-items: flex-end;
+    
+    }
+
+    .testimonial_mark.last_one, .testimonial_mark.last_two{
+        display: none;
+    }
+
+/* <!-- <=============== Section Contact Information =============> --> */
+
+    @keyframes contact_info_left{
+        0%{opacity: 0; transform: translateX(-100%);}
+        100%{opacity: 1; transform: translateX(0%);}
+    }
+
+    @keyframes contact_form_right{
+        0%{opacity: 0; transform: translateX(100%);}
+        100%{opacity: 1; transform: translateX(0%);}
+    }
+
+    .sec_contact{
+        min-width:auto;
+    }
+
+
+    .contact_header{
+        margin-bottom: 0;
+    }
+
+
+    .contact_personal_info{
+        justify-content: center;
+        align-items: flex-start;
+        padding-left: var(--p-2);
+        animation: contact_info_left 1s ease-in;
+    }
+
+
+    .contact_content_wrapper{
+        width: var(--container_width);
+        grid-template-columns: 40% 60%;
+        gap: var(--p-3);
+        justify-content: center;
+        align-items: center;
+        margin-bottom: var(--mb-4);
+    }
+
+    .contact_form{
+        top: 15%;
+        min-width: auto;
+        animation: contact_form_right 1s ease-in;
+    }
+
+
+/*  <=============== Footer Area =============> */
+
+    .footer_nav_bar{
+        display: grid;
+        grid-template-columns: 40% 35% 25%;
+        align-content: center;
+        justify-content: center;
+    
+        }
+
+        .footer_info:nth-child(2){
+            align-items: flex-end;
+            padding-left: 5rem;
+        }
+        
+
+    }

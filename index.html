@@ -25,7 +25,7 @@
             <a href="#home" class="nav_bar_logo">
                 NBM-Portfolio
             </a>
-            <div class="nav_bar_toggler">
+            <div class="nav_bar_toggler button">
                  <p class="nav_bar_toggler_button open"><i class="fa-solid fa-bars"></i></p> 
             </div>
             <div class="full_screen"></div>
@@ -49,10 +49,15 @@
                     <li class="nav_item">
                         <a href="#contact_me" class="nav_link">Contact me</a>
                     </li>
+
                 </ul>
 
                 <p class="nav_bar_toggler_button close"><i class="fa-solid fa-xmark"></i></p>  
 
+            </div>
+            <div class="nav_bar_toggler nav_themes">
+                <p class="nav_bar_toggler_light"><i class="fa-solid fa-sun"></i></p>
+                <p class="nav_bar_toggler_dark"><i class="fa-solid fa-moon"></i></p>
             </div>
         </nav>
     </header>
@@ -85,9 +90,9 @@
                         <div class="home_social_info">
                             <div class="title">Follow Me</div>
                             <div class="home_social_info_icon">
-                                <a href=""><p><i class="fa-brands fa-square-facebook"></i></p></a>
-                                <a href=""><p><i class="fa-brands fa-linkedin"></i></p></a>
-                                <a href=""><p><i class="fa-solid fa-envelope"></i></p></a>
+                                <a href="#"><p><i class="fa-brands fa-square-facebook"></i></p></a>
+                                <a href="#"><p><i class="fa-brands fa-linkedin"></i></p></a>
+                                <a href="#"><p><i class="fa-solid fa-envelope"></i></p></a>
                             </div>
                         </div>
                     </div>
@@ -115,17 +120,17 @@
                         <div class="working_experience">
                             <p class="icon"><i class="fa-solid fa-clock-rotate-left"></i></p>
                             <h5 class="number">3+</h5>
-                            <p>Years Experience</p>
+                            <p class="years">Years Experience</p>
                         </div>
                         <div class="working_experience">
                             <p class="icon"><i class="fa-solid fa-diagram-project"></i></p>
                             <h5 class="number">3+</h5>
-                            <p>Years Experience</p>
+                            <p class="years">Years Experience</p>
                         </div>
                         <div class="working_experience">
                             <p class="icon"><i class="fa-solid fa-building"></i></p>
                             <strong class="number">3+</strong>
-                            <p>Years Experience</p>
+                            <p class="years">Years Experience</p>
                         </div>
                     </div>
                 </div>
@@ -735,7 +740,7 @@
                         </div> 
                     </div>
                     <div class="contact_form">
-                            <h3>Please Leave Your Requirement Information</h3>
+                            <h3>Please Leave Your Infomation</h3>
                             <form id="contact_form_" action="javascript:void(0)" name="customer_message" method="POST" netlify-honeypot="bot-field" data-netlify="true">
                                 <input type="hidden" name="form-name" value="contact">
                                 <p class="hidden">
@@ -744,20 +749,20 @@
                                     </label>
                                   </p>
                                 <div class="form-control"> 
-                                    <input type="text" id="name"  required>
+                                    <input type="text" id="name" name="name" value="" required>
                                     <label for="name">Your Name</label>
                                 </div>
                                 <div class="form-control"> 
-                                    <input type="email" id="email" required>
+                                    <input type="email" id="email" name="email" value="" required>
                                     <label for="email">Your Email</label>
                                 </div>
                                 <div class="form-control">
-                                    <textarea name="project" id="project" cols="5" required></textarea>
+                                    <textarea id="project" cols="5" name="project" value="" required></textarea>
                                     <label for="project">Your Project Info</label>
                                 </div>
                                 <div class="form-control">
-                                    <textarea name="project" id="project" cols="5" required></textarea>
-                                    <label for="project">Your Message</label>
+                                    <textarea name="message" id="mesage" cols="5" value="" required></textarea>
+                                    <label for="mesage">Your Message</label>
                                 </div>
                                 <input type="submit" class="btn_submit" value="Submit">
                             </form>
@@ -980,17 +985,29 @@
                     </div>
                 </div>
                 <div class="footer_info quick_linked_info">
-                    <ul>
-                        <a href="#">Service</a>
-                        <a href="#">Portfolio</a>
-                        <a href="#">Contact Me</a>
+                    <ul class="nav_menu">
+                        <li class="nav_item">
+                            <a href="#about" class="nav_link">About</a>
+                        </li>
+                        <li class="nav_item">
+                            <a href="#skill" class="nav_link">Skills</a>
+                        </li>
+                        <li class="nav_item">
+                            <a href="#service" class="nav_link">Services</a>
+                        </li>
+                        <li class="nav_item">
+                            <a href="#portfolio" class="nav_link">Portfolio</a>
+                        </li>
+                        <li class="nav_item">
+                            <a href="#contact_me" class="nav_link">Contact me</a>
+                        </li>
                     </ul>
                 </div>
             </div>
 
          </div>
          <div class="copy_right">
-            <p>&copy All right reserved</p>
+            <p>Copyright &copy - 2022, All right reserved</p>
          </div> 
    </footer> 
 
