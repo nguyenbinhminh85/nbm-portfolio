@@ -75,6 +75,10 @@ $(document).ready(function(){
 /* <=============== Section Qualification =============>  */
 
         $(".qua-nav-btn").on("click", function(){
+
+            $(this).find(".qua-content-title").addClass("active");
+            $(this).siblings().find(".qua-content-title").removeClass("active");
+
             $data = $(this).data('type');
             $('.qua-info-').not(`#${$data}`).hide(400);
             $('.qua-info-').filter(`#${$data}`).show(600);
@@ -84,12 +88,22 @@ $(document).ready(function(){
 
        $(".service_info").on("click", "#service_btn" ,function(){
             let service = $(this).parent().data("service");
+
+            if($(this).hasClass("service_view-service_arrow")){
+                $(this).addClass("rotate");
+
+                $(this).parent().siblings().find(".service_view-service_arrow").removeClass("rotate");
+            }
+
             $(".service_info_detail").not(`#${service}`).fadeOut(200);
             $(".service_info_detail").filter(`#${service}`).fadeIn(600);
             $(".service-content-modal").addClass('active');
        });
 
        $(".service_info_detail").on("click", ".service_info_close", function(){
+
+            $(".service_content_wrapper").find(".service_view-service_arrow").removeClass("rotate");
+        
             $(this).parent().fadeOut(200);
             $(".service-content-modal").removeClass('active');
        });
@@ -387,6 +401,72 @@ $(document).ready(function(){
                 },1000)
             }
 
-        })   
+        }) 
+        
+        
+/*  Turn the Theme on-off  to Dark Mode*/
+
+        $(".nav_bar_toggler_light").on("click", function(){
+               $(this).toggleClass("turn_on");
+               $(".nav_bar_toggler_dark").toggleClass("turn_on");
+
+               $("body").addClass("change_mode");
+               $("header").addClass("change_mode");
+               $(".nav_bar").addClass("change_mode");
+
+               $(".sec_home").addClass("change_mode");
+
+               $(".sec_about").addClass("change_mode");
+
+               $(".sec_skill").addClass("change_mode");
+
+               $(".sec_qualification").addClass("change_mode");
+
+               $(".sec_service").addClass("change_mode");
+
+               $(".sec_portfolio").addClass("change_mode");
+
+               $(".sec_before").addClass("change_mode");
+
+               $(".sec_contact").addClass("change_mode");
+
+               $(".sec_testimonial").addClass("change_mode");
+
+               $("footer").addClass("change_mode");
+
+
+        });
+
+        $(".nav_bar_toggler_dark").on("click", function(){
+
+                $(this).toggleClass("turn_on");
+                $(".nav_bar_toggler_light").toggleClass("turn_on");
+
+                $("body").removeClass("change_mode");
+                $("header").removeClass("change_mode");
+                $(".nav_bar").removeClass("change_mode");
+
+                $(".sec_home").removeClass("change_mode");
+
+                $(".sec_about").removeClass("change_mode");
+
+                $(".sec_skill").removeClass("change_mode");
+
+                $(".sec_qualification").removeClass("change_mode");
+
+                $(".sec_service").removeClass("change_mode");
+
+                $(".sec_portfolio").removeClass("change_mode");
+
+                $(".sec_before").removeClass("change_mode");
+
+                $(".sec_contact").removeClass("change_mode");
+
+                $(".sec_testimonial").removeClass("change_mode");
+
+                $("footer").removeClass("change_mode");
+
+        });
+        
            
 });
